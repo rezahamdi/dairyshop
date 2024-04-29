@@ -1,0 +1,58 @@
+.detail{
+    display: grid;
+    padding: 3rem;
+    grid-template-columns: repeat(1,1fr);
+}
+
+.detail-img{
+    width: 100%;
+    height: 400px;
+    max-width: 600px;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .detail{
+        grid-template-columns: repeat(2,1fr);
+        row-gap: 4rem;
+    }
+}
+
+.detail-description{
+    padding-right: 2rem;
+}
+
+.detail-basket-btn{
+    margin-top: 6rem;
+    transition: scale 0.2s ease-in;
+   
+}
+
+.detail-basket-btn a{
+    background-color: #232323;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.detail-basket-btn:hover{
+    scale:1.05;
+  
+}
+
+.detail-selling_price{
+    text-decoration: line-through;
+    color: var(--color-accent);
+}
+
+
+.detail-toman{
+    margin-right: 4px;
+}
+
+
+.detail-quantity{
+   margin-right: 2rem;
+   color: var(--color-accent);
+}

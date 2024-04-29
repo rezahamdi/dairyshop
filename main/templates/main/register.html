@@ -1,0 +1,34 @@
+{% extends "main/base.html" %}
+ {% load static %} 
+ 
+ {% block style %}
+<link rel="stylesheet" href="{% static 'main/css/register.css' %} " />
+{% endblock style %} 
+
+{% block title %}ثبت نام{% endblock title %}
+
+{% block main-content %}
+  
+<div class="container">
+<div class="form-container">
+    <form action="" novalidate method="post">
+        {% csrf_token %}
+        {% for fm in form %}
+            {{fm.label_tag}} 
+            <br>
+            {{fm}}
+            {% for error in fm.errors %}
+                <span class="form-errors"> {{error}}</span>
+            {% endfor %}
+            <br>
+        {% endfor %}
+     <button class="form-btn" type="submit">ثبت نام</button>
+    </form>
+    <div class="form-change-container">
+        <span>برای ورود<a class="form-change-link" href="{% url 'login'%}">کلیک کنید</a></span>
+    </div>
+</div>
+</div>
+ 
+
+{% endblock main-content %}

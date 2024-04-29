@@ -1,0 +1,376 @@
+/* Import websit Font */
+@font-face {
+	font-family: 'sahel';
+	src: url('/static/main/font/Sahel-FD.woff') format("woff");
+		 /* url('/static/main/font/Yekan.woff2') format("woff2"); */
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* Our Variabels */
+
+:root {
+    --border-radius: 12px;
+    --color-accent: #ef394e;
+    --color-body :#f0f0f1;
+    --color-primary: #18BFD3;
+    --color-secondary: #424750;
+  }
+
+
+/* For all elements set box-sizing */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+  }
+ 
+/* Typography */
+::selection {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+  }
+
+
+html {
+    font-size: 62.5%;
+    direction: rtl;
+  }
+
+/* Typography  Section */
+body {
+    font-family: 'sahel', Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    line-height: 1.5;
+   }
+
+h1,
+h2,
+h3{
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  
+h1{
+    font-size: 6rem;
+  }
+
+h2 {
+    font-size: 4rem;
+  }
+
+p {
+    margin-top: 0;
+  }
+
+a {
+    text-decoration: none;
+  }
+
+
+
+
+
+@media screen and (min-width: 1024px) {
+    body {
+      font-size: 1.8rem;
+    }
+  
+    h1 {
+      font-size: 8rem;
+    }
+  
+    h2 {
+      font-size: 4rem;
+    }
+  
+  }
+
+
+.grid{
+    display: grid;
+  }
+
+.grid-3-1{
+   grid-template-columns: repeat(3, 1fr);
+
+}
+
+
+
+.flex-col {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex-row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.badge {
+    border-radius: 60px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    white-space: nowrap;
+    
+  }
+
+.badge-accent{
+    background: var(--color-accent);
+    color: var(--color-body);
+}
+
+
+
+
+.icon_clicked{
+    filter: brightness(0) saturate(100%) invert(16%) sepia(13%) saturate(697%) hue-rotate(160deg) brightness(94%) contrast(98%);
+}
+
+
+
+/* Header  */
+
+.header {
+    padding: 1rem 2rem;
+}
+
+.logo{
+    height: 80px;
+    margin:0 1rem;
+}
+
+
+/* Search section in header */
+.nav-search__container{
+    background: var(--color-body);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 2rem;
+    width: 100%;
+}
+
+.header__input{
+    background: var(--color-body);
+    border: none;
+    font-size: 1.8rem;
+    padding-right: 1rem;
+    width: 100%;
+    height: 4rem;
+}
+
+.header__input::-webkit-search-cancel-button{
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  background: url('/static/main/images/svg/delete.svg');
+  background-repeat: no-repeat;
+}
+
+.header__input:focus{
+    outline: none;
+}
+
+.header-link{
+  color: var(--color-primary);
+  transition: scale 0.2s ease-in;
+  margin-right: 6px;
+  border: none;
+  background: transparent;
+}
+
+.header-link:hover{
+  scale: 1.1;
+}
+
+/* Login in Desktop Mode dont show in phone mode */
+.login-section{
+    display: none;
+}
+
+
+
+
+
+/* Bottom Nav */
+
+.align-bootom{
+    align-self:flex-end;
+}
+
+.bottom-nav__link{
+  color: gray;
+  transition: scale 0.15s ease-in;
+}
+
+.bottom-nav__link:hover{
+  scale: 1.1;
+}
+
+
+.bottom-nav__container {
+    border-top: 1px solid var(--color-body);
+    background: #fff;
+    bottom: 0;
+    padding:1rem 3rem;
+    position:fixed;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.bottom--nav__text{
+    font-size: 1.4rem;
+    margin-top: 0.25rem;  
+}
+
+
+/* Badg In Bottom Navigation */
+.nav-badge{
+  margin-bottom: 0;
+  position: relative;
+  }
+ 
+ .badge-basket{
+     position:absolute;
+     right: 16px;
+     top: 4px;
+     
+ }
+
+
+@media screen and (min-width: 1024px) {
+
+    /* set bottom navigation to undisplay */
+    .bottom-nav__container{
+        display: none;
+     }
+
+    .nav-search__container{
+        width: 50%;
+     }
+     
+    .login-section {
+        align-items: center;
+        column-gap: 1rem;
+        display: flex;
+        justify-content: end;
+        width: 40%;
+        
+      }
+      .login-username{
+        color: var(--color-primary);
+        font-size: 1.4rem;
+      }
+      
+    .login__register{
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid gray;
+        column-gap: 1.5rem;
+        display: flex;
+        padding: 1rem 2rem;
+        
+      }
+      
+    .login__text {
+        color: #232323;
+        font-size: 1.4rem;
+
+      }
+
+      /* Badg In Top Desktop */
+    .badge-desktop{
+       margin-bottom: 0;
+       position: relative;
+     }
+   
+   .badge-basket-desktop{
+       background: var(--color-accent);
+       color: var(--color-body);
+       position:absolute;
+       right: 16px;
+       top: 4px;
+   }
+}
+
+
+
+/*Footer */
+
+
+.footer{
+  width: 100%;
+  background-color: #232323;
+  margin-top: 10rem;
+  padding-top: 2rem;
+}
+
+
+.footer-container{
+  margin: 0rem auto;
+  padding-bottom: 10rem;
+  width: 80%;
+}
+
+.grid-1-3{
+  grid-template-columns: repeat(1,1fr);
+}
+
+.footer-list{
+  list-style: none;
+}
+
+.footer-header{
+  font-weight: bold;
+  white-space: nowrap;
+  color: #fff;
+}
+
+
+.footer-item{
+  transition: scale 0.2s ease-out; 
+  margin-bottom: 0.5rem;
+}
+
+.footer-item:hover{
+  scale: 1.1;
+}
+
+.footer-item a{
+  color: #918ca4;
+  transition: color 0.2s ease-out;
+}
+
+.footer-item a:hover{
+  color: #fff;
+
+}
+
+@media screen and (min-width: 768px) {
+  .grid-2-2{
+    grid-template-columns: repeat(2,1fr);
+    
+   
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  .footer{
+    width: 100%;
+  }
+  
+  .grid-3-1{
+    grid-template-columns: repeat(3,1fr);
+    
+    
+  }
+}

@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+{% load static %} 
+{% load humanize %}
+ 
+{% block style %}  
+    <link rel="stylesheet" href="{% static 'main/css/basket.css' %} " />
+{% endblock style %} 
+
+{% block title %}سبد خرید{% endblock title %}
+
+{% block main-content %}
+   <div class="basket-card">
+            <div class="basket-list">
+                <h2 class="basket-heading">سبد خرید</h2>
+                {% for cartItem in cartItems %}
+                   <div>
+                        <div class="basket-line line-top"></div>
+                        <div class="flex-row basket-items">
+                            <img class="basket-img" src="{{cartItem.product.product_img.url}}" alt="">
+                            <a class="basket-title" href="{% url 'detail' cartItem.product.slug %}" >{{cartItem.product.title}}</a>
+                            <div class="flex-row basket-quantity">
+                                <a class="basket-count-link btn-minus" pid="{{cartItem.product.id}}">-</a>
+                                <div class="basket-count" >{{cartItem.quantity}}</div>
+                                <a class="basket-count-link btn-plus" pid="{{cartItem.product.id}}">+</a>
+                            </div>
+                            <span class="basket-price">{{cartItem.product.discount_price|intcomma:False}}
+                                <img  src="{% static 'main/images/svg/toman.svg' %}" alt="">
+                            </span>
+                            <a class="basket-delete-link" pid="{{cartItem.product.id}}">
+                                <img class="basket-delete" src="{% static 'main/images/svg/delete.svg' %}" alt="">
+                            </a> 
+                        </div>
+                   </div>
+                {% endfor %}
+                <div class="basket-line"></div>
+            </div>
+       
+       <div class="basket-checkout">
+        
+        <div class="basket-top-line"></div>
+        <div class="checkout-total-price">
+            <span>قیمت کل</span>
+            <span>
+                <span id="totalamount">{{total_cost|intcomma:False}}</span>
+                <img src="{% static 'main/images/svg/toman.svg' %}" alt="">
+            </span>
+        </div>
+         <a class="basket-checkout-btn" href="#" type="button">تسویه حساب</a>
+       </div>
+   </div>
+{% endblock main-content%}
+
+
+
+{% block script %}
+  <script src="{% static 'main/js/basket.js' %}"></script>
+{% endblock script %}

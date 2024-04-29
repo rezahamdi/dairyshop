@@ -1,0 +1,130 @@
+.basket-card{
+    border-radius: 1rem;
+    border: transparent;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 950px;
+    width: 90%;
+}
+
+@media(max-width:768px){
+    .card{
+        margin: 3vh auto;
+    }
+}
+
+.basket-grid-1-2{
+    grid-template-columns: repeat(1,2fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+.basket-list{
+    padding:2rem;
+    
+}
+.basket-heading{
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.basket-line{
+    height: 1px;
+    background: var(--color-body);
+}
+
+.basket-items{
+    padding: 1rem 0;
+}
+
+.basket-delete-link{
+    padding-top: 0.5rem;
+}
+
+.basket-img{
+    border-radius: 4px;
+    height: 100px;
+    object-fit: cover;
+    overflow: hidden;
+    width: 100px;
+}
+
+.basket-title{
+    margin: 0;
+    flex-grow: 12;
+    padding-right: 1rem;
+    font-size: 1.8rem;
+    color: #232323;
+}
+
+.basket-quantity{
+    flex-grow: 4;
+    padding-bottom: .5rem;
+}
+
+.basket-count{
+    border-radius: 4px;
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--color-body);
+}
+
+.basket-count-link{
+    color: #000;
+    padding: 0 .5rem;
+    transition: scale 0.2s ease-in;
+}
+.basket-count-link::selection{
+    background: transparent;
+}
+.basket-count-link:hover{
+    cursor: pointer;
+    scale: 1.4;
+}
+
+.basket-price{
+    flex-grow: 2;
+    white-space: nowrap;
+}
+
+.basket-delete{
+    margin-left: 1rem;
+}
+
+
+
+/* CheckOut */
+
+.basket-checkout{
+    background: var(--color-body);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+}
+
+.basket-checkout-heading{
+    margin-top: 0;
+}
+
+.checkout-total-price{
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 1rem;
+}
+
+.basket-checkout-btn{
+    align-self: center;
+    background: #232323;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 300px;
+    padding: 1rem 10rem;
+    transition: scale 0.2s ease-in;
+    white-space: nowrap;
+}
+
+.basket-checkout-btn:hover{
+    scale: 1.1;
+}
+

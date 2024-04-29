@@ -1,0 +1,42 @@
+{% extends "main/base.html" %}
+ {% load static %} 
+ 
+ {% block style %}
+<link rel="stylesheet" href="{% static 'main/css/register.css' %} " />
+{% endblock style %} 
+
+{% block title %}ورود{% endblock title %}
+
+{% block main-content %}
+  {% if request.user.is_authenticated %}
+    <div class=" flex-col loged-in">
+        <span class="user-name"> {{request.user.username}}  به سایت خودتان خوش آمدید</span>
+        <a href="{%url 'logout'%}">برای خارج شدن کلیک کنید</a>
+    </div>
+  {% else %}
+  <div class="container">
+    <div class="form-container">
+        <form action="" novalidate method="post" >
+            {% csrf_token %}
+            {% for fm in form %}
+                    {{fm.label_tag}} 
+                    <br>
+                    {{fm}}
+                    {% for error in fm.errors %}
+                        <span class="form-errors"> {{error}}</span>
+                    {% endfor %}
+                    <br>
+            {% endfor %}
+        
+            <button class="form-btn" type="submit">ورود</button>
+        </form>
+        <div class="form-change-container">
+            <span>برای ثبت نام <a class="form-change-link" href="{% url 'customerregistration'%}">کلیک کنید</a></span>
+        </div>
+    </div>
+</div>
+  
+  
+  {% endif %}  
+
+{% endblock main-content %}

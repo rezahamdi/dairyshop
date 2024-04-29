@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+{% load static %} 
+{% load humanize %}
+ 
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'main/css/category-search.css' %} " />
+{% endblock style %} 
+
+
+{% block title %}جستجو{% endblock title %}
+
+
+{% block main-content %}
+    
+    <div class="category">
+        {% for product in products  %}
+            <a class="category-item" href="{%url 'detail' product.slug %}">
+                <img class="category-img" src="{{product.product_img.url}}" alt="{{product.title}}">
+                <div class="category-describ">
+                    <span>{{product.title}}</span>
+                    <span class="flex-row">
+                        <span class="category-price">{{product.selling_price|intcomma:False}}</span>
+                        <img class="category-toman" src="{% static 'main/images/svg/toman.svg' %}" alt="">
+                    </span>
+                </div>
+            </a>
+        {% endfor %}
+    </div> 
+{% endblock main-content%}

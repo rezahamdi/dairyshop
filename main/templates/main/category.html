@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+ {% load static %} 
+ {% load humanize %}
+ 
+ {% block style %}
+<link rel="stylesheet" href="{% static 'main/css/category-search.css' %} " />
+{% endblock style %} 
+
+{% block title %}{% endblock title %}
+   
+{% block main-content %}
+  <div class="category">
+    {% for cat in categories  %}
+      <a class="category-item" href="{%url 'detail' cat.slug %}">
+          <img class="category-img" src="{{cat.product_img.url}}" alt="{{cat.title}}">
+          <div class="category-describ">
+              <span>{{cat.title}}</span>
+              <span class="flex-row">
+                  <span class="category-price">{{cat.selling_price|intcomma:False}}</span>
+                  <img class="category-toman" src="{% static 'main/images/svg/toman.svg' %}" alt="">
+              </span>
+          </div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock main-content%}

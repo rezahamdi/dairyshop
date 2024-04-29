@@ -1,0 +1,82 @@
+{% extends "main/base.html" %}
+ {% load static %} 
+ 
+{% block style %}
+  <link rel="stylesheet" href="{% static 'main/css/home.css' %} " />
+{% endblock style %} 
+
+{% block title %}صفحه اصلی{% endblock title %} 
+
+{% block slider %}
+
+ <!-- Slide container have 3 div with 3 img in that -->
+<div class="slidshow-container">
+  <div class="slid-container fade">
+    <img class="slid-image" src="{%static 'main/images/banner/banner1.jpg' %}" />
+  </div>
+  <div class="slid-container fade">
+    <img class="slid-image" src="{%static 'main/images/banner/banner2.jpg' %}" />
+  </div>
+  <div class="slid-container fade">
+    <img class="slid-image" src="{%static 'main/images/banner/banner3.jpg' %}" />
+  </div>
+</div>
+{% endblock slider %} 
+
+
+{% block main-content %}
+   <!-- decsrib about our website  -->
+  <div class="flex-col decsrib-container">
+      <h1>محصولات لبنی</h1>
+      <p class="decsrib-text">
+        با توجه به عمر کوتاه شیر، معمولا لازم است فرایند پاستوریزه‌ کردن را پشت سر
+        بگذارد. در این فرایند، شیر آنقدر حرارت می‌بیند تا از تعداد باکتری‌های مضری
+        که می‌توانند آن را فاسد کنند یا به سلامت مصرف‌کنندگان آسیب بزنند، کاسته شود.
+        سایر محصولات مانند پنیر هم از طریق انعقاد کازئین – یکی از مهم‌ترین
+        پروتئین‌های موجود در شیر – و جداسازی آن از پنیراب به دست می‌آیند.
+      </p>
+  </div>
+
+  <!-- category Section -->
+  <div class="category">
+    <h2 class="category-header">لیست محصولات</h2>
+    
+    <!-- container of categories -->
+    <div class="grid grid-1-6 grid-3-2">
+      <a class="flex-col category-link" href="{% url 'category' 'CR'%}">
+        <img class="category-image" src="{%static 'main/images/curd-total.png' %}" alt="" />
+        <span class="category-text">کشک</span>
+      </a>
+      
+      <a class="flex-col category-link" href="{% url 'category' 'ML'%}">
+        <img class="category-image" src="{%static 'main/images/cow-milk.png' %}" alt="" />
+        <span class="category-text">شیر</span>
+      </a>
+
+      <a class="flex-col category-link" href="{% url 'category' 'MS'%}">
+        <img class="category-image" src="{%static 'main/images/milk-shake-vanilla.png' %}" alt="" />
+        <span class="category-text">میلک شیک</span>
+      </a>
+
+      <a class="flex-col category-link" href="{% url 'category' 'IC'%}">
+        <img class="category-image" src="{%static 'main/images/icbars.png' %}" alt="" />
+        <span class="category-text">بستنی</span>
+      </a>
+
+      <a class="flex-col category-link" href="{% url 'category' 'CZ'%}">
+        <img class="category-image" src="{%static 'main/images/paneer-lite.png' %}" alt="" />
+        <span class="category-text">پنیر</span>
+      </a>
+
+      <a class="flex-col category-link" href="{% url 'category' 'YO'%}">
+        <img class="category-image" src="{%static 'main/images/sabja.png' %}" alt="" />
+        <span class="category-text">ماست</span>
+      </a>
+    </div>
+  </div>
+{%endblock main-content %} 
+
+
+{% block script %}
+  <script src="{% static 'main/js/home.js' %}"></script>
+{% endblock script %}

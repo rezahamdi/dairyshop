@@ -1,0 +1,7 @@
+/media/
+/product/
+/static/
+/.vscode/
+Pipfile
+Pipfile.lock
+db.sqlite3

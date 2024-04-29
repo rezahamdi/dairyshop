@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" href="{% static 'main/images/svg/neel.ico' %} ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'main/css/normalize.css' %} " />
+  <link rel="stylesheet" href="{% static 'main/css/base.css' %} " />
+
+  <!-- this block use to import every pages css file -->
+  {% block style %}{% endblock style %}
+  <title>Dairy Shop | {% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+  <header class="header">
+    <!-- Serach box with Logo  -->
+    <nav class="flex-row">
+      <a href="{% url 'home' %}" class="logo"><img class="logo" src="{%static 'main/images/neel.png' %}" alt="" /></a>
+      <div class="flex-row nav-search__container">
+        <img src="{%static 'main/images/svg/search.svg' %}" alt="" />
+        <form  class="flex-row header__input" role="search" action="/search">
+          <input id="search-input" class="header__input" type="search" name="search" aria-label="Search" placeholder="جستجو در شاپ" />
+         <button disabled id="btn-search" class="header-link" type="submit">جستجو</button>
+        </form>
+      </div>
+      <!-- Login & Basket In Desktop -->
+      <div class="login-section">
+        <a href="{% url 'login' %}">
+          <div class="login__register">
+            {% if request.user.is_authenticated %}
+               <span class="login-username">{{request.user.username}}</span>
+            {% else %}
+              <img  src="{%static 'main/images/svg/login.svg' %}" alt="" />
+              <span class="login__text">ورود | ثبت&zwnj;نام </span> 
+            {% endif %}
+          </div>
+        </a>
+        <span>|</span>
+        <a href="{% url 'basket'%}">
+          <div class="flex-col badge-desktop">
+            <img src="{%static 'main/images/svg/basket.svg' %}" alt="" />
+            {% if cart_count %}
+            <span class="badge badge-accent badge-basket-desktop">{{cart_count}}</span>
+            {% endif %}
+          </div>
+       </a>
+      </div>
+    </nav>
+    <!-- Bottom Navigation in phon mode-->
+    <div class="grid grid-3-1 bottom-nav__container">
+      <!-- home Link -->
+      <a href="{% url 'home' %}"  class="bottom-nav__link">
+        <div class="flex-col">
+          <img  src="{%static 'main/images/svg/home.svg' %}" alt="" />
+          <span class="bottom--nav__text">خانه</span>
+        </div>
+      </a>
+      
+      <!-- Basket Link -->
+      <a href="{% url 'basket' %}" class="bottom-nav__link">
+        <div class="flex-col">
+          <div class="flex-col nav-badge">
+            <img class="align-bootom" src="{%static 'main/images/svg/basket.svg' %}" alt="" />
+              {% if cart_count %}
+              <span class="badge badge-accent badge-basket">{{cart_count}}</span>
+              {% endif %}
+          </div>
+          <span class="bottom--nav__text">سبد خرید</span>
+        </div>
+      </a>
+      <!-- Person Link -->
+      <a href="{% url 'login' %}" class="bottom-nav__link">
+        <div class="flex-col">
+          <img  src="{%static 'main/images/svg/person.svg' %}" alt="" />
+          <span class="bottom--nav__text">پروفایل</span>
+        </div>
+      </a>
+    </div>
+  </header>
+  <!-- Body of our website -->
+  <body>
+    {% block slider %}{% endblock slider %}
+    {% block main-content %}{%endblock main-content %}
+  </body>
+  <footer class="footer">
+    <div class="grid grid-1-3 grid-2-2 grid-3-1 footer-container">
+      <div>
+        <ul class="footer-list">
+            <li ><h2 class="footer-header">شاپ</h2></li>
+            <li class="footer-item"><a href="">گزارش تخلف</a></li>
+            <li class="footer-item"><a href="">تماس با ما</a></li>
+            <li class="footer-item"><a href="">درباره دیجی شاپ</a></li>
+        </ul>
+      </div>
+      <div>
+        <ul class="footer-list">
+            <li><h2 class="footer-header">خدمات مشتریان</h2></li>
+            <li class="footer-item"><a href="">نحوه بازگرداندن کالا</a></li>
+            <li class="footer-item"><a href="">شرایط استفاده</a></li>
+            <li class="footer-item"><a href="">جریم خصوصی</a></li>
+            <li class="footer-item"><a href="">گزارش باگ</a></li>
+        </ul>
+      </div>
+      <div>
+        <ul class="footer-list">
+            <li><h2 class="footer-header">راهنمای خرید از ما</h2></li>
+            <li class="footer-item"><a href="">نحوه ثبت شفارش</a></li>
+            <li class="footer-item"><a href="">رویه ارسال</a></li>
+            <li class="footer-item"><a href="">نحوه پرداخت</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'main/js/jquery-3.7.1.min.js' %}"></script>
+  <script src="{% static 'main/js/base.js' %}"></script>
+  <!-- This block use to import every pages js file's -->
+  {% block script %}{% endblock script %}
+</body>
+</html>

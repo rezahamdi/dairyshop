@@ -1,0 +1,40 @@
+{% extends "main/base.html" %}
+{% load static %} 
+{% load humanize %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'main/css/detail.css' %} " />
+{% endblock style %} 
+
+
+{% block title %}
+    {{product.title}}
+{% endblock title %}
+
+
+{% block main-content %}
+   <div class="detail">
+        <div>
+            <img class="detail-img" src="{{product.product_img.url}}" alt="">
+        </div>
+        <div>
+                <h2>{{product.title}}</h2>
+                <span class="detail-selling_price">{{product.selling_price|intcomma:False}}</span>
+                <br>
+                <span>{{product.discount_price|intcomma:False}}<img class="detail-toman" src="{% static 'main/images/svg/toman.svg' %}" alt=""></span>
+                <h3>توضیحات</h3>
+                <p class="detail-description">{{product.description}}</p>
+                <div class="detail-basket-btn">
+                    <a id = "detail-add-btn" pid="{{product.id}}" >اضافه کردن به سبد خرید</a>
+                    <span class = "detail-quantity" ></span>
+                </div>
+        </div>
+   </div>
+{% endblock main-content%}
+
+
+
+{% block script %}
+  <script src="{% static 'main/js/detail.js' %}"></script>
+{% endblock script %}
